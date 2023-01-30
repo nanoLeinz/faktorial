@@ -6,9 +6,18 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("/factorial")
+@Produces(MediaType.APPLICATION_JSON)
 public class FactorialController {
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Factorial> fruits() {
+        return  Factorial.listAll();
+    }
+
     @POST
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
