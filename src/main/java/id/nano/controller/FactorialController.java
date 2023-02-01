@@ -14,7 +14,7 @@ public class FactorialController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Factorial> fruits() {
+    public List<Factorial> getAll() {
         return  Factorial.listAll();
     }
 
