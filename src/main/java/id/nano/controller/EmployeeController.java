@@ -27,5 +27,4 @@ public class EmployeeController {
         query.setParameter("id", idNumber);
         return query.getResultList();
     }
-    }
 }
