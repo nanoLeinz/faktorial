@@ -27,14 +27,5 @@ public class EmployeeController {
         query.setParameter("id", idNumber);
         return query.getResultList();
     }
-
-    @Path("/avg")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Employee> getAvg(@QueryParam("idnumber") Integer idNumber) {
-        String script = "WITH RECURSIVE bawahan AS (SELECT id,name,manager_id FROM employee WHERE id = :id UNION SELECT e.id, e.name, e.manager_id FROM employee e INNER JOIN bawahan s ON s.id = e.manager_id) SELECT avg(b.score) FROM bawahan a left join employee_score b on a.id = b.id";
-        Query query = entityManager.createNativeQuery(script, Employee.class);
-        query.setParameter("id", idNumber);
-        return query.getResultList();
     }
 }
